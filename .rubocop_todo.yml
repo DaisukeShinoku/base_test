@@ -171,3 +171,9 @@ Style/SymbolArray:
 # URISchemes: http, https
 Layout/LineLength:
   Max: 190
+
+Style/Documentation:
+  Enabled: false
+
+Style/AsciiComments:
+  Enabled: false
