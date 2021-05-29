@@ -185,3 +185,9 @@ Style/AsciiComments:
 Metrics/BlockLength:
   Exclude:
     - 'spec/**/*'
+
+### Moduleのネストスタイル/コンパクトスタイルの混在を許容
+ClassAndModuleChildren:
+  Exclude:
+    - 'app/controllers/**/*'
+    - 'app/helpers/**/*'
