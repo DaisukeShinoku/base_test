@@ -172,8 +172,16 @@ Style/SymbolArray:
 Layout/LineLength:
   Max: 190
 
+### 下記をRails作成後に追加 ###
+
+### 日本語のコメントが難しくなるため
 Style/Documentation:
   Enabled: false
 
 Style/AsciiComments:
   Enabled: false
+
+### Rspecでブロックが大きくなるのは必然のため
+Metrics/BlockLength:
+  Exclude:
+    - 'spec/**/*'

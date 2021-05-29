@@ -24,38 +24,37 @@ RSpec.describe Player, type: :model do
     end
   end
 
-  describe 'フォーマット' do
-    describe 'アカウント名' do
-      it '数字,アルファベット,アンスコが有効であること' do
-        player = build(:player, account_name: 'abc_123')
-        expect(player).to be_valid
-      end
-      it '日本語が無効であること' do
-        player = build(:player, account_name: 'アイウエオ')
-        expect(player).to_not be_valid
-      end
-      it 'アンスコ以外の特殊文字が無効であること' do
-        player = build(:player, account_name: 'abc-123')
-        expect(player).to_not be_valid
-      end
+  describe 'フォーマット - アカウント名' do
+    it '数字,アルファベット,アンスコが有効であること' do
+      player = build(:player, account_name: 'abc_123')
+      expect(player).to be_valid
     end
-    describe 'メールアドレス' do
-      it '一般的なメールアドレスが有効であること' do
-        player = build(:player, email: 'test@test.com')
-        expect(player).to be_valid
-      end
-      it '日本語が無効であること' do
-        player = build(:player, email: 'アイウエオ@アイウエオ.com')
-        expect(player).to_not be_valid
-      end
-      it '@がなければ無効であること' do
-        player = build(:player, email: 'abc123.com')
-        expect(player).to_not be_valid
-      end
-      it '@の後ろがドメインでなければ無効であること' do
-        player = build(:player, email: 'test@test')
-        expect(player).to_not be_valid
-      end
+    it '日本語が無効であること' do
+      player = build(:player, account_name: 'アイウエオ')
+      expect(player).to_not be_valid
+    end
+    it 'アンスコ以外の特殊文字が無効であること' do
+      player = build(:player, account_name: 'abc-123')
+      expect(player).to_not be_valid
+    end
+  end
+
+  describe 'フォーマット - メールアドレス' do
+    it '一般的なメールアドレスが有効であること' do
+      player = build(:player, email: 'test@test.com')
+      expect(player).to be_valid
+    end
+    it '日本語が無効であること' do
+      player = build(:player, email: 'アイウエオ@アイウエオ.com')
+      expect(player).to_not be_valid
+    end
+    it '@がなければ無効であること' do
+      player = build(:player, email: 'abc123.com')
+      expect(player).to_not be_valid
+    end
+    it '@の後ろがドメインでなければ無効であること' do
+      player = build(:player, email: 'test@test')
+      expect(player).to_not be_valid
     end
   end
 
