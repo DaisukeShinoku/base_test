@@ -17,6 +17,7 @@ ActiveRecord::Schema.define(version: 2021_05_25_160035) do
 
   create_table "players", comment: "プレイヤー", force: :cascade do |t|
     t.string "account_name", limit: 15, null: false, comment: "アカウント名"
+    t.string "display_name", limit: 50, null: false, comment: "プロフィール名"
     t.integer "prefecture_code", comment: "都道府県コード"
     t.string "email", null: false, comment: "メールアドレス"
     t.string "password_digest", null: false, comment: "パスワード"
@@ -24,6 +25,7 @@ ActiveRecord::Schema.define(version: 2021_05_25_160035) do
     t.string "image", comment: "プロフィール画像"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["account_name"], name: "index_players_on_account_name", unique: true
     t.index ["email"], name: "index_players_on_email", unique: true
   end
 

@@ -1,0 +1,18 @@
+ja:
+  attributes:
+    created_at: 登録日時
+    updated_at: 更新日時
+
+  activerecord:
+    models:
+      player: プレイヤー
+    
+    attributes:
+      player:
+        id: プレイヤーID
+        account_name: アカウント名
+        prefecture_code: 都道府県コード
+        email: メールアドレス
+        password_digest: パスワード
+        profile: プロフィール文
+        image: プロフィール画像
