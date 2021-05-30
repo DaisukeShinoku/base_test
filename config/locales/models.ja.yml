@@ -11,8 +11,10 @@ ja:
       player:
         id: プレイヤーID
         account_name: アカウント名
-        prefecture_code: 都道府県コード
+        display_name: 表示名
+        prefecture_code: 都道府県
         email: メールアドレス
-        password_digest: パスワード
+        password: パスワード
+        password_confirmation: パスワード(確認用)
         profile: プロフィール文
         image: プロフィール画像

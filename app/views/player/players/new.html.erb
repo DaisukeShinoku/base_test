@@ -1,0 +1,39 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <%= form_with model: [:player ,@player], local: true do |f| %>
+      <% if @player.errors.any? %>
+        <div>
+          <div class="alert alert-danger">
+            <%= pluralize(@player.errors.count, "個") %>のエラーがあります
+          </div>
+          <ul>
+          <% @player.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+          </ul>
+        </div>
+      <% end %>
+        <%= f.label :account_name %>
+        <%= f.text_field :account_name %>
+        <br>
+        <%= f.label :display_name %>
+        <%= f.text_field :display_name %>
+        <br>
+        <%= f.label :email %>
+        <%= f.email_field :email %>
+        <br>
+        <%= f.label :prefecture_code %>
+        <%= f.select :prefecture_code, Player.prefecture_codes.keys, {} %>
+        <br>
+        <%= f.label :password %>
+        <%= f.password_field :password %>
+        <br>
+        <%= f.label :password_confirmation %>
+        <%= f.password_field :password_confirmation %>
+        <br>
+        <%= f.submit "アカウント作成", class: "btn btn-primary" %>
+      <% end %>
+    </div>
+  </div>
+</div>
