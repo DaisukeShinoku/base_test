@@ -6,9 +6,9 @@ class Player::SessionsController < ApplicationController
   def create
     @player = Player.find_by(email: params[:session][:email]&.downcase)
     if @player && @player&.authenticate(params[:session][:password])
-      log_in @player
-      params[:session][:remember_me] == '1' ? remember(@player) : forget(@player)
-      redirect_to player_player_path(@player)
+      player_log_in @player
+      params[:session][:remember_me] == '1' ? remember_player(@player) : forget_player(@player)
+      redirect_back_or player_player_url(@player)
     else
       flash.now[:danger] = 'メールアドレス・パスワードの組み合わせが違います'
       render 'new'
@@ -16,7 +16,7 @@ class Player::SessionsController < ApplicationController
   end
 
   def destroy
-    log_out if logged_in?
+    player_log_out if player_logged_in?
     redirect_to root_url
   end
 end

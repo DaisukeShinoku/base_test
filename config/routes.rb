@@ -6,6 +6,6 @@ Rails.application.routes.draw do
     get '/login', to: 'sessions#new'
     post '/login', to: 'sessions#create'
     delete '/login', to: 'sessions#destroy'
-    resources :players
+    resources :players, only: [:create, :show, :edit, :update]
   end
 end

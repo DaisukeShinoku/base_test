@@ -28,7 +28,7 @@ class Player < ApplicationRecord
   validates :prefecture_code, presence: true
   validates :email, presence: true, length: { maximum: EMAIL_MAX }, format: { with: VALID_EMAIL_REGEX }, uniqueness: { case_sensitive: false }
   has_secure_password
-  validates :password, presence: true, length: { minimum: PASSWORD_MIN }
+  validates :password, presence: true, length: { minimum: PASSWORD_MIN }, allow_nil: true
 
   # 渡された文字列のハッシュ値を返す
   def self.digest(string)
@@ -42,7 +42,7 @@ class Player < ApplicationRecord
   end
 
   # 永続セッションのために選手をデータベースに記憶する
-  def remember
+  def remember_player
     self.remember_token = Player.new_token
     update_attribute(:remember_digest, Player.digest(remember_token))
   end
@@ -55,7 +55,7 @@ class Player < ApplicationRecord
   end
 
   # 選手のログイン情報を破棄する
-  def forget
+  def forget_player
     update_attribute(:remember_digest, nil)
   end
 end
