@@ -36,7 +36,23 @@ RSpec.describe 'Player::Sessions', type: :request do
         delete player_login_path
         expect(response).to redirect_to root_path
         expect(is_player_logged_in?).to_not be_truthy
+        ### 以下で2番目のウィンドウでログアウトをクリックする選手をシミュレート
+        delete player_login_path
       end
+    end
+  end
+
+  describe "remember meのテスト" do
+    before do
+      @player = create(:player)
+    end
+    it "チェックされたらクッキー情報を保持する" do
+      log_in_as(@player)
+      expect(cookies[:remember_token]).not_to eq nil
+    end
+    it "チェックされていなかったらクッキー情報を保持しない" do
+      log_in_as(@player, remember_me: '0')
+      expect(cookies[:remember_token]).to eq nil
     end
   end
 end
