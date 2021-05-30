@@ -78,4 +78,11 @@ RSpec.describe Player, type: :model do
       expect(player6).to_not be_valid
     end
   end
+
+  describe '複数ブラウザでのアクセスをシュミレート' do
+    it 'ダイジェストが存在しない場合にfalseを返す' do
+      player = build(:player)
+      expect(player.authenticated?('')).to eq false
+    end
+  end
 end

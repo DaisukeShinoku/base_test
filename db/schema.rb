@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20_210_525_160_035) do
+ActiveRecord::Schema.define(version: 20_210_530_095_513) do
   # These are extensions that must be enabled in order to support this database
   enable_extension 'plpgsql'
 
@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 20_210_525_160_035) do
     t.string 'image', comment: 'プロフィール画像'
     t.datetime 'created_at', precision: 6, null: false
     t.datetime 'updated_at', precision: 6, null: false
+    t.string 'remember_digest'
     t.index ['account_name'], name: 'index_players_on_account_name', unique: true
     t.index ['email'], name: 'index_players_on_email', unique: true
   end
