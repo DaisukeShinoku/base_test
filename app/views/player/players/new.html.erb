@@ -1,6 +1,9 @@
 <div class="container">
+  <div class="row text-center">
+    <span class="display-3">選手登録</span>
+  </div>
   <div class="row">
-    <div class="col-md-6 col-md-offset-3">
+    <div class="col">
       <%= form_with model: [:player ,@player], local: true do |f| %>
       <% if @player.errors.any? %>
         <div>
@@ -14,26 +17,29 @@
           </ul>
         </div>
       <% end %>
-        <%= f.label :account_name %>
-        <%= f.text_field :account_name %>
+        <%= f.label :account_name, class: 'form-label' %>
+        <%= f.text_field :account_name, class: 'form-control' %>
         <br>
-        <%= f.label :display_name %>
-        <%= f.text_field :display_name %>
+        <%= f.label :display_name, class: 'form-label' %>
+        <%= f.text_field :display_name, class: 'form-control' %>
         <br>
-        <%= f.label :email %>
-        <%= f.email_field :email %>
+        <%= f.label :email, class: 'form-label' %>
+        <%= f.email_field :email, class: 'form-control' %>
         <br>
-        <%= f.label :prefecture_code %>
-        <%= f.select :prefecture_code, Player.prefecture_codes.keys, {} %>
+        <%= f.label :prefecture_code, class: 'form-label' %>
+        <%= f.select :prefecture_code, Player.prefecture_codes.keys, {}, class: 'form-control' %>
         <br>
-        <%= f.label :password %>
-        <%= f.password_field :password %>
+        <%= f.label :password, class: 'form-label' %>
+        <%= f.password_field :password, class: 'form-control' %>
         <br>
-        <%= f.label :password_confirmation %>
-        <%= f.password_field :password_confirmation %>
+        <%= f.label :password_confirmation, class: 'form-label' %>
+        <%= f.password_field :password_confirmation, class: 'form-control' %>
         <br>
         <%= f.submit "アカウント作成", class: "btn btn-primary" %>
       <% end %>
     </div>
+  </div>
+  <div class="row text-center">
+    <h5>選手登録済みの方はこちらから → <%= link_to "ログイン", player_login_path, class: "btn btn-secondary" %></h5>
   </div>
 </div>
