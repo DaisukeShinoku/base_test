@@ -1,3 +1,11 @@
-<h1>Welcome to BaseMatch!!</h1>
-
-<%= link_to '仮ボタン', '#', class: 'btn btn-primary' %>
+<div class="container">
+  <div class="row">
+    <span class="display-3">BaseMatchへようこそ!!</span>
+    <div class="col text-center">
+      <%= link_to "選手ログインへ", player_login_path, class: "btn btn-primary" %>
+    </div>
+    <div class="col text-center">
+      <%= link_to "チームログインへ", "#", class: "btn btn-success" %>
+    </div>
+  </div>
+</div>

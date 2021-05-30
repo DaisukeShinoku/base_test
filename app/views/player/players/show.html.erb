@@ -3,8 +3,32 @@
     <div class="alert alert-<%= message_type %>"><%= message %></div>
   <% end %>
   <div class='row'>
-    <div class='col-md-6 col-md-offset-3'>
-      <h1><%= @player.account_name %></h1>
+    <span class="display-3"><%= @player.display_name %>さんのプロフィール</span>
+  </div>
+  <div class='row'>
+    <div class='col'>
+      <%= form_with model: [:player ,@player], local: true do |f| %>
+        <%= f.label :account_name, class: 'form-label' %>
+        <br>
+        <span class="display-6"><%= @player.account_name %></span>
+        <br>
+        <%= f.label :display_name, class: 'form-label' %>
+        <br>
+        <span class="display-6"><%= @player.display_name %></span>
+        <br>
+        <%= f.label :email, class: 'form-label' %>
+        <br>
+        <span class="display-6"><%= @player.email %></span>
+        <br>
+        <%= f.label :prefecture_code, class: 'form-label' %>
+        <br>
+        <span class="display-6"><%= @player.prefecture_code %></span>
+      <% end %>
+    </div>
+  </div>
+  <div class="row text-center">
+    <div class="col-6 offset-3">
+      <%= link_to "ログアウト", player_login_path, method: :delete, class: "btn btn-danger" %>
     </div>
   </div>
 </div>

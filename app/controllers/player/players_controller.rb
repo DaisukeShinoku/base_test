@@ -1,4 +1,6 @@
 class Player::PlayersController < ApplicationController
+  include Player::SessionsHelper
+
   def show
     @player = Player.find(params[:id])
   end
@@ -10,6 +12,7 @@ class Player::PlayersController < ApplicationController
   def create
     @player = Player.new(player_params)
     if @player.save
+      log_in @player
       flash[:success] = complete_message
       redirect_to player_player_path(@player)
     else

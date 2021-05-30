@@ -2,13 +2,13 @@ require 'rails_helper'
 
 RSpec.describe 'Player::Players', type: :request do
   describe 'GET player/signup' do
-    it 'ログイン画面の表示に成功すること' do
+    it 'プレイヤー登録画面の表示に成功すること' do
       get player_signup_path
       expect(response).to be_successful
       expect(response).to have_http_status(200)
     end
   end
-  describe 'POST player/players' do
+  describe 'POST player/signup' do
     context '無効なプレイヤーデータ' do
       let(:player_params) do
         attributes_for(:player,
@@ -39,6 +39,9 @@ RSpec.describe 'Player::Players', type: :request do
         subject { response }
         it { is_expected.to redirect_to player_player_path(Player.last) }
         it { is_expected.to have_http_status(302) }
+        it 'ログインしていることの検証' do
+          expect(is_player_logged_in?).to be_truthy
+        end
       end
     end
   end
