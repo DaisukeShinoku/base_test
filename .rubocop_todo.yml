@@ -49,8 +49,9 @@ Layout/SpaceInsideArrayLiteralBrackets:
 
 # Offense count: 1
 # Configuration parameters: IgnoredMethods, CountRepeatedAttributes.
+# デフォルトの18から25へ変更
 Metrics/AbcSize:
-  Max: 18
+  Max: 25
 
 # Offense count: 1
 # Configuration parameters: IgnoredMethods.
