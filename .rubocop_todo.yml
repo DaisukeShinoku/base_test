@@ -60,8 +60,9 @@ Metrics/CyclomaticComplexity:
 
 # Offense count: 2
 # Configuration parameters: CountComments, CountAsOne, ExcludedMethods, IgnoredMethods.
+# 長さの調整
 Metrics/MethodLength:
-  Max: 13
+  Max: 20
 
 # Offense count: 1
 # Configuration parameters: IgnoredMethods.
@@ -171,7 +172,7 @@ Style/SymbolArray:
 # Configuration parameters: AutoCorrect, AllowHeredoc, AllowURI, URISchemes, IgnoreCopDirectives, IgnoredPatterns.
 # URISchemes: http, https
 Layout/LineLength:
-  Max: 190
+  Max: 200
 
 ### 下記をRails作成後に追加 ###
 
@@ -182,10 +183,11 @@ Style/Documentation:
 Style/AsciiComments:
   Enabled: false
 
-### Rspecでブロックが大きくなるのは必然のため
+### Rspec及びDB配下でブロックが大きくなるのは必然のため
 Metrics/BlockLength:
   Exclude:
     - 'spec/**/*'
+    - 'db/**/*'
 
 ### Moduleのネストスタイル/コンパクトスタイルの混在を許容
 ClassAndModuleChildren:

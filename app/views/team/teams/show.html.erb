@@ -3,35 +3,35 @@
     <div class="alert alert-<%= message_type %>"><%= message %></div>
   <% end %>
   <div class='row'>
-    <span class="display-3"><%= @player.display_name %>さんのプロフィール</span>
+    <span class="display-3"><%= @team.display_name %>のチーム情報</span>
   </div>
   <div class='row'>
     <div class='col'>
-      <%= form_with model: [:player ,@player], local: true do |f| %>
+      <%= form_with model: [:team ,@team], local: true do |f| %>
         <%= f.label :account_name, class: 'form-label' %>
         <br>
-        <span class="display-6"><%= @player.account_name %></span>
+        <span class="display-6"><%= @team.account_name %></span>
         <br>
         <%= f.label :display_name, class: 'form-label' %>
         <br>
-        <span class="display-6"><%= @player.display_name %></span>
+        <span class="display-6"><%= @team.display_name %></span>
         <br>
         <%= f.label :email, class: 'form-label' %>
         <br>
-        <span class="display-6"><%= @player.email %></span>
+        <span class="display-6"><%= @team.email %></span>
         <br>
         <%= f.label :prefecture_code, class: 'form-label' %>
         <br>
-        <span class="display-6"><%= @player.prefecture_code %></span>
+        <span class="display-6"><%= @team.prefecture_code %></span>
       <% end %>
     </div>
   </div>
   <div class="row text-center">
     <div class="col-6">
-      <%= link_to "情報を編集", edit_player_player_path(@player), class: "btn btn-success" %>
+      <%= link_to "情報を編集", edit_team_team_path(@team), class: "btn btn-success" %>
     </div>
     <div class="col-6">
-      <%= link_to "ログアウト", player_login_path, method: :delete, class: "btn btn-danger" %>
+      <%= link_to "ログアウト", team_login_path, method: :delete, class: "btn btn-danger" %>
     </div>
   </div>
 </div>

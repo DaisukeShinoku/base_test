@@ -18,3 +18,24 @@ ja:
         password_confirmation: パスワード(確認用)
         profile: プロフィール文
         image: プロフィール画像
+
+    models:
+      team: チーム
+    
+    attributes:
+      team:
+        id: チームID
+        account_name: アカウント名
+        display_name: 表示名
+        email: メールアドレス
+        password: パスワード
+        password_confirmation: パスワード(確認用)
+        profile: プロフィール文
+        image: プロフィール画像
+        prefecture_code: 都道府県
+        city: 市町村
+        street: 番地
+        latitude: 緯度
+        longitude: 経度
+        phone_number: 電話番号
+        category_id: カテゴリー

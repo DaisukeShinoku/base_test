@@ -1,5 +1,6 @@
 table_names = %w[
   players
+  teams
 ]
 
 table_names.each do |table_name|

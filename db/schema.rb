@@ -10,24 +10,43 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_30_095513) do
-
+ActiveRecord::Schema.define(version: 20_210_531_121_930) do
   # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
+  enable_extension 'plpgsql'
 
-  create_table "players", comment: "プレイヤー", force: :cascade do |t|
-    t.string "account_name", limit: 15, null: false, comment: "アカウント名"
-    t.string "display_name", limit: 50, null: false, comment: "プロフィール名"
-    t.integer "prefecture_code", comment: "都道府県コード"
-    t.string "email", null: false, comment: "メールアドレス"
-    t.string "password_digest", null: false, comment: "パスワード"
-    t.text "profile", comment: "プロフィール文"
-    t.string "image", comment: "プロフィール画像"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.string "remember_digest"
-    t.index ["account_name"], name: "index_players_on_account_name", unique: true
-    t.index ["email"], name: "index_players_on_email", unique: true
+  create_table 'players', comment: 'プレイヤー', force: :cascade do |t|
+    t.string 'account_name', limit: 15, null: false, comment: 'アカウント名'
+    t.string 'display_name', limit: 50, null: false, comment: 'プロフィール名'
+    t.integer 'prefecture_code', comment: '都道府県コード'
+    t.string 'email', null: false, comment: 'メールアドレス'
+    t.string 'password_digest', null: false, comment: 'パスワード'
+    t.text 'profile', comment: 'プロフィール文'
+    t.string 'image', comment: 'プロフィール画像'
+    t.datetime 'created_at', precision: 6, null: false
+    t.datetime 'updated_at', precision: 6, null: false
+    t.string 'remember_digest'
+    t.index ['account_name'], name: 'index_players_on_account_name', unique: true
+    t.index ['email'], name: 'index_players_on_email', unique: true
   end
 
+  create_table 'teams', comment: 'チーム', force: :cascade do |t|
+    t.string 'account_name', limit: 15, null: false, comment: 'アカウント名'
+    t.string 'display_name', limit: 50, null: false, comment: 'プロフィール名'
+    t.string 'email', null: false, comment: 'メールアドレス'
+    t.string 'password_digest', null: false, comment: 'パスワード'
+    t.integer 'prefecture_code', comment: '都道府県コード'
+    t.string 'city', comment: '市町村'
+    t.string 'street', comment: '番地'
+    t.string 'latitude', comment: '緯度'
+    t.string 'longitude', comment: '経度'
+    t.string 'phone_number', comment: '電話番号'
+    t.integer 'category_id', comment: 'カテゴリーID'
+    t.text 'profile', comment: 'プロフィール文'
+    t.string 'image', comment: 'プロフィール画像'
+    t.string 'remember_digest'
+    t.datetime 'created_at', precision: 6, null: false
+    t.datetime 'updated_at', precision: 6, null: false
+    t.index ['account_name'], name: 'index_teams_on_account_name', unique: true
+    t.index ['email'], name: 'index_teams_on_email', unique: true
+  end
 end
