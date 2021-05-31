@@ -1,0 +1,29 @@
+<div class="container">
+  <% flash.each do |message_type, message| %>
+    <div class="alert alert-<%= message_type %>"><%= message %></div>
+  <% end %>
+  <div class="row text-center">
+    <span class="display-3">チームログイン</span>
+  </div>
+  <div class="row">
+    <div class="col">
+      <%= form_with scope: :session, url: team_login_path, local: true do |f| %>
+        <%= f.label :email, 'メールアドレス', class: 'form-label' %>
+        <%= f.email_field :email, class: 'form-control' %>
+        <br>
+        <%= f.label :password, 'パスワード', class: 'form-label' %>
+        <%= f.password_field :password, class: 'form-control' %>
+        <%= f.label :remember_me, class: "checkbox inline" do %>
+          <%= f.check_box :remember_me %>
+          <span>ログイン状態を保持する</span>
+        <% end %>
+        <br>
+        <br>
+        <%= f.submit "ログイン", class: "btn btn-primary" %>
+      <% end %>
+    </div>
+  </div>
+  <div class="row text-center">
+    <h5>チーム登録はお済みですか？ → <%= link_to "こちらから登録", team_signup_path, class: "btn btn-secondary" %></h5>
+  </div>
+</div>
